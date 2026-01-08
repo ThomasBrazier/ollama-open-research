@@ -1,6 +1,12 @@
 # ollama-perplexica
 
 
+## Models
+
+- Chat model: `gemma3:4b`
+- Embedding model: `nomic-embed-text-v1`
+
+
 ## Docker compose to run multiple containers
 
 
@@ -10,11 +16,13 @@ Run a self-hosted LLm workflow with Ollama and Perplexica in Docker with Docker 
 docker compose up -d
 ```
 
-Visit http://localhost:8080 in your browser to access Ollama-webui.
+Visit `http://localhost:8080` in your browser to access Ollama-webui.
 
 
-Visit http://localhost:3000 in your browser to access Perplexica.
+Visit `http://localhost:3000` in your browser to access Perplexica UI.
 
+
+Check olama is running at `http://127.0.0.1:11434/` adn get API tags with `curl http://127.0.0.1:11434/api/tags`. In API tags you can get the "remote_host" (e.g. https://ollama.com:443) to use in Perplexica `Add connection`.
 
 
 ## Pre-load the docker with models
