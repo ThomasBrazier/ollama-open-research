@@ -1,0 +1,35 @@
+[GENERAL]
+app = "ollama-docker"
+primary_region = "arn"
+PORT = 3001
+SIMILARITY_MEASURE = "cosine"
+
+[env]
+  PORT = "8000"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[API_KEYS]
+OPENAI = "" # OpenAI API key - sk-1234567890abcdef1234567890abcdef
+GROQ = "" # Groq API key - gsk_1234567890abcdef1234567890abcdef
+ANTHROPIC = "" # Anthropic API key - sk-ant-1234567890abcdef1234567890abcdef
+GEMINI = "" # Gemini API key - sk-1234567890abcdef1234567890abcdef
+
+[API_ENDPOINTS]
+SEARXNG = "http://searxng:8080"
+OLLAMA = "http://127.0.0.1:11434"
+
+[MODELS.OLLAMA]
+API_URL = "http://127.0.0.1:8081"
+
+
+[LLM]
+provider = "ollama"
+model = "gemma3:4b"
+url = "http://127.0.0.1:8081"
+
