@@ -1,4 +1,5 @@
 ollama/
+ollama-docker/
 perplexica-data/
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -6,22 +6,14 @@
 
 Run a self-hosted LLm workflow with Ollama and Perplexica in Docker with Docker compose.
 
-https://github.com/ItzCrazyKns/Perplexica
-
-https://namrata23.medium.com/run-llms-locally-or-in-docker-with-ollama-ollama-webui-379029060324
-
-https://github.com/mythrantic/ollama-docker
-
-https://www.datacamp.com/fr/tutorial/docker-ollama-run-llms-locally
-
-https://docs.docker.com/compose/intro/compose-application-model/
-
-https://medium.com/@rosgluk/choosing-best-llm-for-perplexica-1bd179596739
-
-https://github.com/ItzCrazyKns/Perplexica/discussions/312
-
+```
+docker compose up -d
+```
 
 Visit http://localhost:8080 in your browser to access Ollama-webui.
+
+
+Visit http://localhost:3000 in your browser to access Perplexica.
 
 
 
@@ -58,3 +50,22 @@ system docker start
 ## build the docker and push to dockerhub
 
 https://docs.docker.com/guides/reactjs/configure-github-actions/
+
+
+## References
+
+https://github.com/ItzCrazyKns/Perplexica
+
+https://namrata23.medium.com/run-llms-locally-or-in-docker-with-ollama-ollama-webui-379029060324
+
+https://github.com/mythrantic/ollama-docker
+
+https://www.datacamp.com/fr/tutorial/docker-ollama-run-llms-locally
+
+https://docs.docker.com/compose/intro/compose-application-model/
+
+https://medium.com/@rosgluk/choosing-best-llm-for-perplexica-1bd179596739
+
+https://github.com/ItzCrazyKns/Perplexica/discussions/312
+
+https://ollama.readthedocs.io/en/faq/?h=default+context#how-do-i-use-ollama-behind-a-proxy

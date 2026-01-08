@@ -1,6 +1,6 @@
 services:
   app:
-    build: .
+    build: ./ollama-docker
     ports:
       - 8000:8000
       - 5678:5678
@@ -30,6 +30,9 @@ services:
       - OLLAMA_HOST=0.0.0.0
     networks:
       - ollama-docker
+    post_start:
+        - command: |
+            ollama pull gemma3:4b
 
   ollama-webui:
     image: ghcr.io/open-webui/open-webui:main
@@ -66,7 +69,7 @@ services:
     environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
       - SEARXNG_API_URL=http://your-searxng-url:8080 #If you already have SearxNG running, you can use the slim version of Perplexica
     extra_hosts:
-      - host.docker.internal:host-gateway
+      - host.docker.internal:0.0.0.0
     restart: unless-stopped
     networks:
       - ollama-docker
