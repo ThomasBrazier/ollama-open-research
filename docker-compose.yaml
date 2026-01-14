@@ -21,7 +21,11 @@ services:
     volumes:
       - .:/code
       - ./ollama/ollama:/root/.ollama
+      - ./ollama_entrypoint.sh:/ollama_entrypoint.sh
+      - ./models.txt:/models.txt
     container_name: ollama
+    #https://stackoverflow.com/questions/78500319/how-to-pull-model-automatically-with-container-creation
+    entrypoint: ["/usr/bin/bash", "/ollama_entrypoint.sh"]
     pull_policy: always
     tty: true
     restart: always
@@ -30,11 +34,24 @@ services:
       - OLLAMA_HOST=0.0.0.0:11434
     networks:
       - ollama-docker
-    # Preload Gemma3 model
-    # TODO preload in a custom dir (e.g. ~/.ollama)
-    post_start:
-        - command: |
-            ollama pull gemma3:4b mistral:7b llama3:8b
+
+
+  # ollama:
+  #   build: ./ollama-preloaded-models
+  #   ports:
+  #     - 7869:11434
+  #   volumes:
+  #     - .:/code
+  #     - ./ollama/ollama:/root/.ollama
+  #   container_name: ollama
+  #   pull_policy: always
+  #   tty: true
+  #   restart: always
+  #   environment:
+  #     - OLLAMA_KEEP_ALIVE=24h
+  #     - OLLAMA_HOST=0.0.0.0:11434
+  #   networks:
+  #     - ollama-docker
 
   ollama-webui:
     image: ghcr.io/open-webui/open-webui:main
@@ -68,7 +85,7 @@ services:
       - ollama
     ports:
       - 3000:3000
-    environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
+    environment:
       - SEARXNG_API_URL=http://your-searxng-url:8080 #If you already have SearxNG running, you can use the slim version of Perplexica
       - OLLAMA=http://127.0.0.1:11434/
     extra_hosts:
