@@ -1,0 +1,4 @@
+gemma3:4b
+mistral:7b
+llama3:8b
+nomic-embed-text:latest
