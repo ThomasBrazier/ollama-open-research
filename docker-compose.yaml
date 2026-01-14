@@ -31,9 +31,10 @@ services:
     networks:
       - ollama-docker
     # Preload Gemma3 model
+    # TODO preload in a custom dir (e.g. ~/.ollama)
     post_start:
         - command: |
-            ollama pull gemma3:4b
+            ollama pull gemma3:4b mistral:7b llama3:8b
 
   ollama-webui:
     image: ghcr.io/open-webui/open-webui:main
