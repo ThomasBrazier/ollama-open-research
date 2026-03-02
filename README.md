@@ -1,25 +1,35 @@
 # ollama-perplexica
 
 
+## Features
+
+
+TODO
+* config Ollama context length
+* RAGflow
+* lightRAG
+* Openwebui custom pipeline integration
+
+
 ## Models
 
-- Chat model: `gemma3:4b`
+- Chat model: `gemma3:4b`, `mistral:7b`, `llama3:8b`
 - Embedding model: `nomic-embed-text-v1`
 
 
 ## Docker compose to run multiple containers
 
 
-Run a self-hosted LLm workflow with Ollama and Perplexica in Docker with Docker compose.
+Run a self-hosted LLM workflow with Ollama and OpenWebUI in Docker with Docker compose.
 
 ```
+git clone https://github.com/mythrantic/ollama-docker.git
+
 docker compose up -d
 ```
 
 Visit `http://localhost:8080` in your browser to access Ollama-webui.
 
-
-Visit `http://localhost:3000` in your browser to access Perplexica UI.
 
 
 Check olama is running at `http://127.0.0.1:11434/` adn get API tags with `curl http://127.0.0.1:11434/api/tags`. In API tags you can get the "remote_host" (e.g. https://ollama.com:443) to use in Perplexica `Add connection`.

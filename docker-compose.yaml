@@ -76,23 +76,23 @@ services:
     networks:
       - ollama-docker
 
-  perplexica:
-    image: itzcrazykns1337/perplexica:latest
-    container_name: perplexica
-    volumes:
-      - ./perplexica-data:/home/perplexica/data
-    depends_on:
-      - ollama
-    ports:
-      - 3000:3000
-    environment:
-      - SEARXNG_API_URL=http://your-searxng-url:8080 #If you already have SearxNG running, you can use the slim version of Perplexica
-      - OLLAMA=http://127.0.0.1:11434/
-    extra_hosts:
-      - host.docker.internal:0.0.0.0
-    restart: unless-stopped
-    networks:
-      - ollama-docker
+  # perplexica:
+  #   image: itzcrazykns1337/perplexica:latest
+  #   container_name: perplexica
+  #   volumes:
+  #     - ./perplexica-data:/home/perplexica/data
+  #   depends_on:
+  #     - ollama
+  #   ports:
+  #     - 3000:3000
+  #   environment:
+  #     - SEARXNG_API_URL=http://your-searxng-url:8080 #If you already have SearxNG running, you can use the slim version of Perplexica
+  #     - OLLAMA=http://127.0.0.1:11434/
+  #   extra_hosts:
+  #     - host.docker.internal:0.0.0.0
+  #   restart: unless-stopped
+  #   networks:
+  #     - ollama-docker
 
 networks:
   ollama-docker:
