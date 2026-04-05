@@ -3,18 +3,56 @@
 
 ## Features
 
+Actually, after running `docker compose up`, you can:
+* Use Ollama (API `http://127.0.0.1:11434/`)
+* Run a local AI chat with Openwebui [http://localhost:8080](http://localhost:8080)
+* Select one the preloaded models (downloaded at first run, can be long)
+* All your history and database are saved locally in volumes (see `docker-compose.yaml` for volumes path)
+
+
+
 
 TODO
+* Add CUDA/GPU support
+* Add CI/CD. Github actions
 * config Ollama context length
 * RAGflow
 * lightRAG
+* Activate Agentic mode in Openwebui
 * Openwebui custom pipeline integration
+* Add NotebookLlama support (https://notebooklama.com/)
 
 
 ## Models
 
-- Chat model: `gemma3:4b`, `mistral:7b`, `llama3:8b`
+The list of models to preload at first run is in `models.txt`. By default:
+
+- Chat model: `gemma4:latest`, `gemma3:4b`, `mistral:7b`, `llama3:8b`
 - Embedding model: `nomic-embed-text-v1`
+
+
+
+
+To check which models you can run on your local machine:
+
+hf-mem (https://github.com/alvarobartt/hf-mem)
+
+With `uv` installed, run:
+
+```
+uvx hf-mem --model-id google/gemma-4-E4B
+```
+
+Alternatively, to compare all available models:
+
+llmfit (https://github.com/AlexsJones/llmfit)
+
+```
+# Install locally
+curl -fsSL https://llmfit.axjns.dev/install.sh | sh -s -- --local
+
+llmfit
+```
 
 
 ## Docker compose to run multiple containers
@@ -23,8 +61,6 @@ TODO
 Run a self-hosted LLM workflow with Ollama and OpenWebUI in Docker with Docker compose.
 
 ```
-git clone https://github.com/mythrantic/ollama-docker.git
-
 docker compose up -d
 ```
 
@@ -32,14 +68,9 @@ Visit `http://localhost:8080` in your browser to access Ollama-webui.
 
 
 
-Check olama is running at `http://127.0.0.1:11434/` adn get API tags with `curl http://127.0.0.1:11434/api/tags`. In API tags you can get the "remote_host" (e.g. https://ollama.com:443) to use in Perplexica `Add connection`.
+Check `Ollama` is running at `http://127.0.0.1:11434/` adn get API tags with `curl http://127.0.0.1:11434/api/tags`. In API tags you can get the "remote_host" (e.g. https://ollama.com:443) to use in Perplexica `Add connection`.
 
 
-## Pre-load the docker with models
-
-```
-docker build -t tombrazier/ollama-models .
-```
 
 ## Change where to save docker images
 
@@ -65,7 +96,7 @@ Modify the file `/etc/docker/daemon.json`
 system docker start
 ```
 
-## build the docker and push to dockerhub
+## Build the docker and push to dockerhub
 
 https://docs.docker.com/guides/reactjs/configure-github-actions/
 
@@ -87,3 +118,5 @@ https://medium.com/@rosgluk/choosing-best-llm-for-perplexica-1bd179596739
 https://github.com/ItzCrazyKns/Perplexica/discussions/312
 
 https://ollama.readthedocs.io/en/faq/?h=default+context#how-do-i-use-ollama-behind-a-proxy
+
+https://github.com/mythrantic/ollama-docker
