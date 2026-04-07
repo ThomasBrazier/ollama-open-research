@@ -6,7 +6,7 @@
 Actually, after running `docker compose up`, you can:
 * Use Ollama (API `http://127.0.0.1:11434/`)
 * Run a local AI chat with Openwebui [http://localhost:8080](http://localhost:8080)
-* Select one the preloaded models (downloaded at first run, can be long)
+* Select one of the preloaded models (downloaded at first run, can be long)
 * All your history and database are saved locally in volumes (see `docker-compose.yaml` for volumes path)
 
 
