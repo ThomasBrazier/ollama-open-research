@@ -13,6 +13,7 @@ Actually, after running `docker compose up`, you can:
 
 
 TODO
+* Comprehensive documentation and personalization
 * Add CUDA/GPU support
 * Add CI/CD. Github actions
 * config Ollama context length
