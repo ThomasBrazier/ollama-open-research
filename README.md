@@ -19,9 +19,35 @@ TODO
 * config Ollama context length
 * RAGflow
 * lightRAG
+* Integrate Feynman, The open source AI research agent: https://github.com/getcompanion-ai/feynman
 * Activate Agentic mode in Openwebui
 * Openwebui custom pipeline integration
 * Add NotebookLlama support (https://notebooklama.com/)
+
+
+## Configuration
+
+`Chat Control` -> `System Prompt` : where to save your system prompt. Generally you describe the role and define the functions of the LLM in this prompt, e.g., 'You are a research assistant and I need you to find relevant sources and summarize them in a formal academic tone.'
+
+Also found in `Settings` -> `WebUI Settings` -> `System Prompt` to set it permanently.
+
+
+### Agentic Mode and Web search
+
+[https://docs.openwebui.com/features/extensibility/plugin/tools/#tool-calling-modes-default-vs-native](https://docs.openwebui.com/features/extensibility/plugin/tools/#tool-calling-modes-default-vs-native)
+
+
+Go to `Admin Panel` -> `Settings` -> `Models` -> `Advanced Params` -> `Function Calling` -> `Native`
+
+
+
+
+
+* [https://github.com/open-webui/open-webui/discussions/15614](https://github.com/open-webui/open-webui/discussions/15614)
+* [https://docs.openwebui.com/features/chat-conversations/web-search/agentic-search/](https://docs.openwebui.com/features/chat-conversations/web-search/agentic-search/)
+
+"Agentic web search works best with frontier models like GPT-5, Claude 4.5+, Gemini 3+, or MiniMax M2.5 that can reason about search results and decide when to dig deeper. Small local models may struggle with the multi-step reasoning required."
+
 
 
 ## Models
